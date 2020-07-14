@@ -2,6 +2,7 @@
   import { fade } from 'svelte/transition';
 
   export let value = '';
+  export let dense = false;
 </script>
 
 <style>
@@ -11,24 +12,32 @@
     border-radius: 0;
     min-width: 200px;
     box-sizing: border-box;
-    padding: 0 .5rem;
     outline: none;
-    background: #DFDFDF;
+    border-bottom: 1px dashed black;
+  }
+  
+  input.dense {
+    height: 20px;
+    width: 100px;
+    min-width: 100px;
   }
   
   :global(.mode-dark) input {
     color: white;
-    background: #2A2A2A;
   }
   
   input:focus {
-    border-right: 2px solid #297EB3;
+    border-bottom: 1px solid black;
   }
   
   label {
     position: absolute;
     top: 0;
     right: 0;
+  }
+  
+  label.dense {
+    display: none;
   }
   
   label, input::-moz-placeholder {
@@ -50,26 +59,27 @@
   }
   
   :global(.mode-dark) label {
-    background: #2A2A2A;
   }
   
   .wrapper {
     position: relative;
   }
+  
 </style>
 
-<div class="wrapper">
+<div class="wrapper" class:dense>
   <input
     type="text"
     autocomplete="off"
     autocorrect="off"
     spellcheck="false"
     bind:value
+		class:dense
     placeholder={$$props.label || $$props.placeholder}
     {...$$props}
     on:click
   />
   {#if value !== '' && $$props.label}
-    <label transition:fade={{duration: 50}}>{$$props.label}</label>
+    <label class:dense transition:fade={{duration: 50}}>{$$props.label}</label>
   {/if}
 </div>

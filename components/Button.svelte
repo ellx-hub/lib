@@ -1,31 +1,33 @@
 <script>
 	export let label = '';
 	export let onClick = () => {};
+  export let dense = false;
 </script>
 
 <style>
 	button {
     font-family: Consolas, monaco, monospace;
     height: 34px;
+    font-weight: bold;
     border-radius: 0;
     min-width: 200px;
     box-sizing: border-box;
     padding: 0 .5rem;
     outline: none;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: white;
-    background: #237EB3;
-    transition: background .1s;
+    letter-spacing: 2.5px;
   }
   
   button:hover {
     cursor: pointer;
-    background: #237EBF;
   }
   
+  button.dense {
+    min-width: 100px;
+    height: 20px;
+  }
 </style>
 
-<button {...$$props} on:click={onClick}>
+<button class:dense {...$$props} on:click={onClick}>
   {label}
 </button>

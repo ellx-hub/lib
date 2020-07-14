@@ -1,7 +1,8 @@
 <script>
   export let value;
   export let options = [];
-  export let label;
+  export let label = '';
+  export let dense = false;
 </script>
 
 <style>
@@ -10,21 +11,24 @@
     height: 36px;
     width: 200px;
     outline: none;
-    background: #DFDFDF;
-    padding: 0 .5rem;
+    border-bottom: 1px dashed black;
   }
   
   input:focus {
-    border-right: 2px solid #297EB3;
+    border-bottom: 1px solid black;
   }
   
   :global(.mode-dark) select {
-    background: #2A2A2A;
     color: white;
+  }
+  
+  .dense {
+    height: 20px;
+    width: 100px;
   }
 </style>
 
-<select bind:value>
+<select class:dense bind:value>
   {#if label}
     <option value=''>{label}</option>
 	{/if}
