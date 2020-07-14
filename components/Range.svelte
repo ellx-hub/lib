@@ -4,10 +4,4 @@
   export let value = 50;
 </script>
 
-<style>
-  input {
-    font-color: black;
-  }
-</style>
-
-<input class="cursor-pointer" type="range" bind:value {min} {max}>
+<input type="range" bind:value {min} {max} {...$$props}>

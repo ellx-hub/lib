@@ -1,0 +1,41 @@
+version: 1.1
+nodes:
+  s = select({ options: range(10) })
+  login = textField({ label: 'Login' })
+  password = textField({ label: 'Password', type: 'password' })
+  confirm = checkbox({ label: "Remember me" })
+  $9 = button({ label: "Submit", onClick: {} })
+  $10 = rangeInput({ min: 100, max: 10000 })
+layout:
+[
+  [
+    {
+      "node": "s"
+    }
+  ],,
+  [,
+    {
+      "node": "login"
+    }
+  ],,
+  [,
+    {
+      "node": "password"
+    }
+  ],,
+  [,
+    {
+      "node": "confirm"
+    }
+  ],,
+  [,
+    {
+      "node": "$9"
+    }
+  ],,,,,,
+  [,
+    {
+      "node": "$10"
+    }
+  ]
+]
