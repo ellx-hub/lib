@@ -20,7 +20,7 @@
   }
   
   input:focus {
-    border: 1px solid #297EB3;
+    border-right: 1px solid #297EB3;
   }
   
   label {
