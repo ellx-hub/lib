@@ -15,7 +15,7 @@
   }
   
   input:focus {
-    border-right: 1px solid #297EB3;
+    border-right: 2px solid #297EB3;
   }
   
   :global(.mode-dark) select {

@@ -1,4 +1,6 @@
 <script>
+  import { fade } from 'svelte/transition';
+
   export let value = '';
 </script>
 
@@ -20,7 +22,7 @@
   }
   
   input:focus {
-    border-right: 1px solid #297EB3;
+    border-right: 2px solid #297EB3;
   }
   
   label {
@@ -68,6 +70,6 @@
     on:click
   />
   {#if value !== '' && $$props.label}
-    <label>{$$props.label}</label>
+    <label transition:fade={{duration: 50}}>{$$props.label}</label>
   {/if}
 </div>
