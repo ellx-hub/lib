@@ -25,6 +25,12 @@
   button.dense {
     min-width: 100px;
     height: 20px;
+    font-size: 0.7rem;
+  }
+  
+  :global(.mode-dark) button {
+    background: black;
+    color: white;
   }
 </style>
 

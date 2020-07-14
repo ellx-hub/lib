@@ -14,6 +14,7 @@
     box-sizing: border-box;
     outline: none;
     border-bottom: 1px dashed black;
+    background: transparent;
   }
   
   input.dense {
@@ -24,6 +25,11 @@
   
   :global(.mode-dark) input {
     color: white;
+    border-bottom: 1px dashed white;
+  }
+  
+  :global(.mode-dark) input:focus {
+    border-bottom: 1px solid white;
   }
   
   input:focus {
