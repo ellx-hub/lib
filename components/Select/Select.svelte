@@ -7,7 +7,7 @@
 
 <style>
   select {
-    font-family: Sonsolas, monospace;
+    font-family: Consolas, monaco, monospace;
     height: 36px;
     width: 200px;
     outline: none;
@@ -19,7 +19,13 @@
   }
   
   :global(.mode-dark) select {
+    background: transparent;
     color: white;
+    border-bottom: 1px dashed white;
+  }
+  
+  :global(.mode-dark) select:focus {
+    border-bottom: 1px solid white;
   }
   
   .dense {

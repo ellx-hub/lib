@@ -7,12 +7,14 @@ nodes:
   confirmDense = checkbox({ label: "Remember me", dense: true })
   bb = button({ label: "Submit", onClick: {}, dense: true })
   confirm = checkbox({ label: "Remember me" })
-  denseRange = rangeInput({ min: 100, max: 10000, dense: true })
+  denseRange = slider({ min: 100, max: 10000, dense: true })
   $9 = button({ label: "Submit", onClick: {} })
-  $10 = rangeInput({ min: 100, max: 10000 })
+  $10 = slider({ min: 100, max: 10000 })
   loginDense = textField({ label: 'Login', dense: true })
   typeOptions = ['quantitative', 'nominal', 'temporal', 'ordinal']
+  a = upload()
   $12 = radio({ options: typeOptions })
+  $16 = download({ value: a, filename: 'test.txt' })
 layout:
 [,
   [,
@@ -67,11 +69,19 @@ layout:
   [,
     {
       "node": "typeOptions"
+    },,,,
+    {
+      "node": "a"
     }
   ],
   [,
     {
       "node": "$12"
+    }
+  ],,
+  [,,,,,
+    {
+      "node": "$16"
     }
   ]
 ]

@@ -2,6 +2,7 @@
 	export let label = '';
 	export let onClick = () => {};
   export let dense = false;
+  export let size = 2;
 </script>
 
 <style>
@@ -10,7 +11,6 @@
     height: 34px;
     font-weight: bold;
     border-radius: 0;
-    min-width: 200px;
     box-sizing: border-box;
     padding: 0 .5rem;
     outline: none;
@@ -23,7 +23,7 @@
   }
   
   button.dense {
-    min-width: 100px;
+    width: 100px;
     height: 20px;
     font-size: 0.7rem;
   }
@@ -34,6 +34,12 @@
   }
 </style>
 
-<button class:dense {...$$props} on:click={onClick}>
-  {label}
+<button
+  style="width: {(dense ? 1 : size) * 100}px"
+  class:dense
+  {...$$props}
+  on:click={onClick}
+	on:click
+>
+  <slot>{label}</slot>
 </button>

@@ -1,8 +1,10 @@
 <script>
+  import Input from '/components/Input/Input.svelte';
   export let min = 0;
   export let max = 100;
   export let value = 50;
   export let dense = false;
+  export let size = 2;
 </script>
 
 <style>
@@ -11,4 +13,11 @@
   }
 </style>
 
-<input class:dense type="range" bind:value {min} {max} {...$$props}>
+<Input
+	type="range"
+	bind:value
+	{size}
+	{dense}
+	{min}
+	{max}
+	{...$$props} />

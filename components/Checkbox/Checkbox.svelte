@@ -1,6 +1,6 @@
 <script>
   export let value = false;
-	export let label;
+	export let label = '';
   export let dense = false;
 
 	// TODO: import codicons? how to ship single icon?
@@ -11,6 +11,8 @@
     display: flex;
     align-items: center;
     height: 40px;
+    font-family: Consolas, monaco, monospace;
+    font-size: 12px;
   }
 
 	label span {

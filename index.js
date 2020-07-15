@@ -1,14 +1,9 @@
-import ellxify from './components/svelte.js';
-import Range from './components/Range.svelte';
-import Select from './components/Select.svelte';
-import Checkbox from './components/Checkbox.svelte';
-import TextField from './components/TextField.svelte';
-import Button from './components/Button.svelte';
-import Radio from './components/Radio.svelte';
-
-export const rangeInput = ellxify(Range);
-export const select = ellxify(Select);
-export const textField = ellxify(TextField);
-export const button = ellxify(Button);
-export const checkbox = ellxify(Checkbox);
-export const radio = ellxify(Radio);
+export { default as select } from '/components/Select/index.js';
+export { default as checkbox } from '/components/Checkbox/index.js';
+export { default as slider } from '/components/Slider/index.js';
+export { default as input } from '/components/Input/index.js';
+export { default as button } from '/components/Button/index.js';
+export { default as radio } from '/components/Radio/index.js';
+export { default as table } from '/components/Table/index.js';
+export { default as upload } from '/components/Upload/index.js';
+export { default as download } from '/components/Download/index.js';
