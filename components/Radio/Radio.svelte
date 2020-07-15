@@ -2,6 +2,8 @@
   export let value;
   export let options = [];
   export let direction = 'vertical';
+  export let stale = false;
+  export let disabled = stale;
 </script>
 
 <style>
@@ -26,10 +28,20 @@
   .ml-2 {
     margin-left: .2rem;
   }
+  
+  .disabled {
+    pointer-events: none;
+    color: lightGray;
+  }
+  
+  :global(.mode-dark) .disabled {
+    color: gray;
+  }
 </style>
 
 <div
   class="flex"
+  class:disabled
   class:flex-col={direction === 'vertical'}
   class:flex-row={direction === 'horizontal'}
 >

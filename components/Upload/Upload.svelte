@@ -13,6 +13,12 @@
   }
 </script>
 
+<style>
+  :global(.mode-dark) input {
+    color: white;
+  }
+</style>
+
 <input
   type="file"
   on:change={read}

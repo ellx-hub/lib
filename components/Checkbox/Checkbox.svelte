@@ -2,6 +2,8 @@
   export let value = false;
 	export let label = '';
   export let dense = false;
+  export let stale = false;
+  export let disabled = stale;
 
 	// TODO: import codicons? how to ship single icon?
 </script>
@@ -22,9 +24,18 @@
   .dense {
     height: 20px;
   }
+  
+  .disabled {
+    pointer-events: none;
+    color: lightGray;
+  }
+  
+  :global(.mode-dark) .disabled {
+    color: gray;
+  }
 </style>
 
-<label class:dense>
+<label class:disabled class:dense>
   <input type="checkbox" on:change={() => value = !value} />
   <span>{label}</span>
 </label>

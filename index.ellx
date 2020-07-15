@@ -1,16 +1,16 @@
 version: 1.1
 nodes:
-  login = textField({ label: 'Login' })
-  l = textField({ dense: true, label: "Login" })
-  passwordDense = textField({ label: 'Password', dense: true, type: 'password' })
-  password = textField({ label: 'Password', type: 'password' })
+  login = input({ label: 'Login' })
+  l = input({ dense: true, label: "Login" })
+  passwordDense = input({ label: 'Password', dense: true, type: 'password' })
+  password = input({ label: 'Password', type: 'password' })
   confirmDense = checkbox({ label: "Remember me", dense: true })
   bb = button({ label: "Submit", onClick: {}, dense: true })
   confirm = checkbox({ label: "Remember me" })
   denseRange = slider({ min: 100, max: 10000, dense: true })
   $9 = button({ label: "Submit", onClick: {} })
   $10 = slider({ min: 100, max: 10000 })
-  loginDense = textField({ label: 'Login', dense: true })
+  loginDense = input({ label: 'Login', dense: true })
   typeOptions = ['quantitative', 'nominal', 'temporal', 'ordinal']
   a = upload()
   $12 = radio({ options: typeOptions })

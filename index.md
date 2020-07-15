@@ -21,6 +21,10 @@ title: Ellx Standard Library
   ul em, ul strong {
     letter-spacing: 0.4px;
   }
+  
+  p {
+    padding: 1rem 0;
+  }
 </style>
 
 # Ellx standard library
@@ -35,19 +39,24 @@ title: Ellx Standard Library
 - *dense* | false | (Boolean)
 - *size* | 2 | (Number)
 - *label* | '' | (String)
+- *disabled* | false | (Boolean)
+- *stale* | false | (Boolean)
 
 ##### Basic
-{ textField({ label: 'My field with a label'}) }
+{ input({ label: 'My field with a label'}) }
 
 ##### Numeric
 Arbitrary props can be passed directly to the input including type.
 
-{ textField({ label: 'Numeric field', type: 'number' }) }
+{ input({ label: 'Numeric field', type: 'number' }) }
 
 ##### Dense
 Most components support `dense` prop to be able to fit in exactly one cell on a sheet (size 20x100px).
 
-{ textField({ label: 'Numeric field', dense: true }) }
+{ input({ label: 'Numeric field', dense: true }) }
+
+##### Disabled
+{ input({ label: "Disabled", disabled: true }) }
 
 <br>
 
@@ -59,6 +68,8 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *dense* | false | (Boolean)
 - *size* | 2 | (Number)
 - *label* | '' | (String)
+- *disabled* | false | (Boolean)
+- *stale* | false | (Boolean)
 - *onClick* | () => {} | (Function)
 
 
@@ -67,6 +78,9 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 
 ##### Dense
 { button({ label: "Submit", dense: true }) }
+
+##### Disabled
+{ button({ label: "Disabled", disabled: true }) }
 
 <br>
 
@@ -78,9 +92,18 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *options* | [] | (Array)
 - *label* | '' | (String)
 - *dense* | false | (Boolean)
+- *disabled* | false | (Boolean)
+- *stale* | false | (Boolean)
 
 <small>*Selected value: {s}*</small>
 { s = select({ options: ['One', 'Two', 'Three'] })}
+
+##### Dense
+{ select({ options: ['One', 'Two', 'Three'], dense: true }) }
+
+##### Disabled
+{ select({ options: ['One', 'Two', 'Three'], disabled: true }) }
+
 
 <br>
 
@@ -92,6 +115,8 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *value* | '' | (String)
 - *dense* | false | (Boolean)
 - *label* | '' | (String)
+- *disabled* | false | (Boolean)
+- *stale* | false | (Boolean)
 
 { checkbox({ label: "Submit" }) }
 
@@ -106,6 +131,8 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *value* | '' | (String)
 - *options* | [] | (Array)
 - *direction* | (horizontal|vertical) | (Enum)
+- *disabled* | false | (Boolean)
+- *stale* | false | (Boolean)
 
 ##### Vertical (default)
 { radio({ options: typeOptions }) }
@@ -121,6 +148,8 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *max* | 50 | (Number)
 - *dense* | false | (Boolean)
 - *size* | 2 | (Number)
+- *disabled* | false | (Boolean)
+- *stale* | false | (Boolean)
 
 { r = slider()}
 {r}
@@ -142,3 +171,15 @@ Upload component exposes its only prop `value` which returns content of a file a
 <br>
 
 ----
+
+#### Download
+
+Download `value` as a file with MIME type `type`. Disabled if value is empty or null.
+
+- **PROPS**
+- *value* | null | Input file content as text
+- *label* | '' | (String)
+- *type* | 'text/plain' | (String)
+- *filename* | '' | (String)
+
+{ download({ value: up || 'test' }) }

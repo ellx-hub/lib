@@ -3,6 +3,8 @@
   export let options = [];
   export let label = '';
   export let dense = false;
+  export let stale = false;
+  export let disabled = stale;
 </script>
 
 <style>
@@ -32,9 +34,19 @@
     height: 20px;
     width: 100px;
   }
+
+  .disabled {
+    pointer-events: none;
+    color: lightGray;
+    border-bottom: 1px solid lightGray;
+  }
+  
+  :global(.mode-dark) .disabled {
+    color: gray;
+  }
 </style>
 
-<select class:dense bind:value>
+<select class:dense bind:value class:disabled>
   {#if label}
     <option value=''>{label}</option>
 	{/if}

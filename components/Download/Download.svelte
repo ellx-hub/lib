@@ -10,6 +10,7 @@
 
 <Button
 	{...$$props}
+  disabled={$$props.disabled || (!value || !value.length)}
 	on:click={() => download(filename, new Blob([value], { type }))}
 >
   <slot>{label}</slot>

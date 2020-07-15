@@ -3,6 +3,8 @@
 	export let onClick = () => {};
   export let dense = false;
   export let size = 2;
+  export let stale = false;
+  export let disabled = stale;
 </script>
 
 <style>
@@ -16,10 +18,14 @@
     outline: none;
     text-transform: uppercase;
     letter-spacing: 2.5px;
+    border: 1px solid black;
+    transition: all .2s ease-in;
   }
   
   button:hover {
     cursor: pointer;
+    background: black;
+    color: white;
   }
   
   button.dense {
@@ -31,10 +37,32 @@
   :global(.mode-dark) button {
     background: black;
     color: white;
+    border: 1px solid white;
+  }
+  
+  :global(.mode-dark) button:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
+  }
+  
+  .disabled {
+    pointer-events: none;
+    color: lightGray;
+    background: #EEE;
+    cursor: default;
+    border: 1px solid lightGray;
+  }
+  
+  :global(.mode-dark) .disabled {
+    background: #AAA;
+    color: gray;
+    border: none;
   }
 </style>
 
 <button
+  class:disabled
   style="width: {(dense ? 1 : size) * 100}px"
   class:dense
   {...$$props}

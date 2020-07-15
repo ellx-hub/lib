@@ -5,11 +5,21 @@
   export let value = 50;
   export let dense = false;
   export let size = 2;
+  export let stale = false;
+  export let disabled = stale;
 </script>
 
 <style>
   .dense {
     width: 100px;
+  }
+  .disabled {
+    pointer-events: none;
+    color: lightGray;
+  }
+  
+  :global(.mode-dark) .disabled {
+    color: gray;
   }
 </style>
 
