@@ -7,3 +7,5 @@ export { default as radio } from '/components/Radio/index.js';
 export { default as table } from '/components/Table/index.js';
 export { default as upload } from '/components/Upload/index.js';
 export { default as download } from '/components/Download/index.js';
+export { default as toggle } from '/components/Toggle/index.js';
+export { default as spinner } from '/components/Spinner/index.js';

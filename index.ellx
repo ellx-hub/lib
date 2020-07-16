@@ -6,9 +6,15 @@ nodes:
   password = input({ label: 'Password', type: 'password' })
   confirmDense = checkbox({ label: "Remember me", dense: true })
   bb = button({ label: "Submit", onClick: {}, dense: true })
+  $17 = button({ label: "Submit", onClick: {}, dense: true })
+  $18 = button({ label: "Submit", onClick: {}, dense: true })
+  $19 = select({ options: range(5), dense: true, outlined: true })
+  $20 = input({ label: 'Login', outlined: true, dense: true })
   confirm = checkbox({ label: "Remember me" })
   denseRange = slider({ min: 100, max: 10000, dense: true })
   $9 = button({ label: "Submit", onClick: {} })
+  $24 = button({ label: "Submit", onClick: {}, dense: true })
+  $22 = Switch()
   $10 = slider({ min: 100, max: 10000 })
   loginDense = input({ label: 'Login', dense: true })
   typeOptions = ['quantitative', 'nominal', 'temporal', 'ordinal']
@@ -41,6 +47,18 @@ layout:
   [,,,,,
     {
       "node": "bb"
+    },
+    {
+      "node": "$17"
+    },
+    {
+      "node": "$18"
+    },
+    {
+      "node": "$19"
+    },
+    {
+      "node": "$20"
     }
   ],
   [,
@@ -57,7 +75,15 @@ layout:
     {
       "node": "$9"
     }
-  ],,,,,,
+  ],,
+  [,,,,,
+    {
+      "node": "$24"
+    },
+    {
+      "node": "$22"
+    }
+  ],,,,
   [,
     {
       "node": "$10"

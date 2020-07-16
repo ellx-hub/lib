@@ -9,6 +9,7 @@
 - [x] Checkbox
 - [x] Radio
 - [x] Slider
+- [x] Switch
 - [ ] List
 - [ ] Chip
 - [ ] Menu

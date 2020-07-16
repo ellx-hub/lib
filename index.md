@@ -140,6 +140,16 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 ##### Horizontal
 { radio({ options: typeOptions, direction: 'horizontal' }) }
 
+----
+
+#### Toggle
+
+- **PROPS**
+- *value* | false | (Boolean)
+- *label* | '' | (String)
+
+{ toggle({ label: 'My switch' }) }
+
 #### Slider
 
 - **PROPS**
@@ -151,7 +161,7 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *disabled* | false | (Boolean)
 - *stale* | false | (Boolean)
 
-{ r = slider()}
+{ r = slider() }
 {r}
 
 <br>
@@ -183,3 +193,16 @@ Download `value` as a file with MIME type `type`. Disabled if value is empty or 
 - *filename* | '' | (String)
 
 { download({ value: up || 'test' }) }
+
+----
+
+#### Spinner
+
+Standard Ellx progress indicator
+
+- **PROPS**
+- *size* | 20 | Input file content as text
+- *dur* | '' | (String)
+- *fill* | 'default' | (String)
+
+{ spinner({ size: 50, dur: 10 }) }

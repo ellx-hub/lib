@@ -5,6 +5,7 @@
   export let dense = false;
   export let stale = false;
   export let disabled = stale;
+  export let outlined = false;
 </script>
 
 <style>
@@ -16,8 +17,20 @@
     border-bottom: 1px dashed black;
   }
   
+  .outlined {
+    border: 1px solid black;
+  }
+  
+  .outlined:focus {
+    border-width: 2px;
+  }
+  
+  :global(.mode-dark) .outlined {
+    border: 1px solid white;
+  }
+  
   input:focus {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
   }
   
   :global(.mode-dark) select {
@@ -27,7 +40,7 @@
   }
   
   :global(.mode-dark) select:focus {
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid white;
   }
   
   .dense {
@@ -46,7 +59,7 @@
   }
 </style>
 
-<select class:dense bind:value class:disabled>
+<select class:dense bind:value class:disabled class:outlined>
   {#if label}
     <option value=''>{label}</option>
 	{/if}

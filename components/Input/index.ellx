@@ -1,0 +1,49 @@
+version: 1.1
+nodes:
+  $1 = input({ label: 'Label' })
+  $2 = input({ value: 'Some value', label: 'Some label' })
+  $3 = input({ value: 'Some value', label: 'Some label', disabled: true })
+  $4 = input({ value: 'Some value', label: 'Some label', outlined: true })
+layout:
+[
+  [
+    {
+      "value": "Default:"
+    }
+  ],
+  [
+    {
+      "node": "$1"
+    }
+  ],,,
+  [
+    {
+      "value": "With value and label:"
+    }
+  ],
+  [
+    {
+      "node": "$2"
+    }
+  ],,,
+  [
+    {
+      "value": "Disabled:"
+    }
+  ],
+  [
+    {
+      "node": "$3"
+    }
+  ],,,
+  [
+    {
+      "value": "Outlined:"
+    }
+  ],
+  [
+    {
+      "node": "$4"
+    }
+  ]
+]

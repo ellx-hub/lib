@@ -1,0 +1,60 @@
+version: 1.1
+nodes:
+  $1 = button({ label: 'test' })
+  $2 = button({ dense: true, label: 'test' })
+  $3 = button({ dense: true, label: 'test', disabled: true })
+  $4 = button({ dense: true, label: 'test', loading: true })
+  $5 = button({ dense: true, label: 'test', loading: true, stale: true })
+layout:
+[
+  [
+    {
+      "value": "Default:"
+    }
+  ],
+  [
+    {
+      "node": "$1"
+    }
+  ],,,
+  [
+    {
+      "value": "Dense:"
+    }
+  ],
+  [
+    {
+      "node": "$2"
+    }
+  ],,
+  [
+    {
+      "value": "Disabled:"
+    }
+  ],
+  [
+    {
+      "node": "$3"
+    }
+  ],,
+  [
+    {
+      "value": "Loading:"
+    }
+  ],
+  [
+    {
+      "node": "$4"
+    }
+  ],,
+  [
+    {
+      "value": "Stale:"
+    }
+  ],
+  [
+    {
+      "node": "$5"
+    }
+  ]
+]

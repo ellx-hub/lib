@@ -1,10 +1,13 @@
 <script>
+  import Spinner from '/components/Spinner/Spinner.svelte';
+
 	export let label = '';
 	export let onClick = () => {};
   export let dense = false;
   export let size = 2;
   export let stale = false;
   export let disabled = stale;
+  export let loading = false;
 </script>
 
 <style>
@@ -19,13 +22,12 @@
     text-transform: uppercase;
     letter-spacing: 2.5px;
     border: 1px solid black;
-    transition: all .2s ease-in;
+    transition: all .1s ease-in;
   }
   
   button:hover {
     cursor: pointer;
-    background: black;
-    color: white;
+    border: 2px solid black;
   }
   
   button.dense {
@@ -35,15 +37,13 @@
   }
   
   :global(.mode-dark) button {
-    background: black;
+    background: transparent;
     color: white;
     border: 1px solid white;
   }
   
   :global(.mode-dark) button:hover {
-    background: white;
-    color: black;
-    border: 1px solid black;
+    border: 2px solid white;
   }
   
   .disabled {
@@ -69,5 +69,7 @@
   on:click={onClick}
 	on:click
 >
-  <slot>{label}</slot>
+  <slot>
+  	{#if loading || stale}<Spinner />{:else}{label}{/if}
+  </slot>
 </button>
