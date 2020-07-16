@@ -14,7 +14,7 @@ nodes:
   denseRange = slider({ min: 100, max: 10000, dense: true })
   $9 = button({ label: "Submit", onClick: {} })
   $24 = button({ label: "Submit", onClick: {}, dense: true })
-  $22 = Switch()
+  $22 = toggle({ label: 'My switch' })
   $10 = slider({ min: 100, max: 10000 })
   loginDense = input({ label: 'Login', dense: true })
   typeOptions = ['quantitative', 'nominal', 'temporal', 'ordinal']
