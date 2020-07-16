@@ -9,3 +9,4 @@ export { default as upload } from '/components/Upload/index.js';
 export { default as download } from '/components/Download/index.js';
 export { default as toggle } from '/components/Toggle/index.js';
 export { default as spinner } from '/components/Spinner/index.js';
+export { default as interval } from '/components/Interval/index.js';

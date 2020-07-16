@@ -1,4 +1,5 @@
 <script>
+  import { scale } from 'svelte/transition';
   import Spinner from '/components/Spinner/Spinner.svelte';
 
 	export let label = '';
@@ -46,7 +47,7 @@
     border: 2px solid white;
   }
   
-  .disabled {
+  .disabled, .loading {
     pointer-events: none;
     color: lightGray;
     background: #EEE;
@@ -63,6 +64,7 @@
 
 <button
   class:disabled
+	class:loading
   style="width: {(dense ? 1 : size) * 100}px"
   class:dense
   {...$$props}
@@ -70,6 +72,12 @@
 	on:click
 >
   <slot>
-  	{#if loading || stale}<Spinner />{:else}{label}{/if}
+  	{#if loading || stale}
+    	<div in:scale>
+    		<Spinner />
+    	</div>
+  	{:else}
+    	{label}
+    {/if}
   </slot>
 </button>

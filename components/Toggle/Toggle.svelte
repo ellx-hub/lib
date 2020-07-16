@@ -51,8 +51,12 @@
     font-family: Consolas, monaco, monospace;
     font-size: 12px;
   }
+
+  input {
+    display: none;
+  }
 </style>
-<input class="hidden" type="checkbox" {value}>
+<input type="checkbox" {value}>
 
 <div class="flex items-center">
   <div class:on={value} class:off={!value} class="track" on:click={() => value = !value}>

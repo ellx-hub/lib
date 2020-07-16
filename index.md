@@ -37,6 +37,7 @@ title: Ellx Standard Library
 - **PROPS** <small>(name | default value | type)</small>
 - *value* | '' | (String)
 - *dense* | false | (Boolean)
+- *outlined* | false | (Boolean)
 - *size* | 2 | (Number)
 - *label* | '' | (String)
 - *disabled* | false | (Boolean)
@@ -58,6 +59,9 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 ##### Disabled
 { input({ label: "Disabled", disabled: true }) }
 
+##### Outlined
+{ input({ label: "Outlined", outlined: true }) }
+
 <br>
 
 ----
@@ -70,6 +74,7 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *label* | '' | (String)
 - *disabled* | false | (Boolean)
 - *stale* | false | (Boolean)
+- *loading* | false | (Boolean)
 - *onClick* | () => {} | (Function)
 
 
@@ -82,6 +87,12 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 ##### Disabled
 { button({ label: "Disabled", disabled: true }) }
 
+##### Loading
+{ button({ label: "Loading", loading: true }) }
+
+##### Stale
+{ button({ label: "Stale", stale: true }) }
+
 <br>
 
 ----
@@ -91,6 +102,7 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *value* | '' | (String)
 - *options* | [] | (Array)
 - *label* | '' | (String)
+- *outlined* | false | (Boolean)
 - *dense* | false | (Boolean)
 - *disabled* | false | (Boolean)
 - *stale* | false | (Boolean)
@@ -103,6 +115,9 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 
 ##### Disabled
 { select({ options: ['One', 'Two', 'Three'], disabled: true }) }
+
+##### Outlined
+{ select({ options: ['One', 'Two', 'Three'], outlined: true }) }
 
 
 <br>
@@ -176,7 +191,12 @@ Upload component exposes its only prop `value` which returns content of a file a
 - *value* | null | (FileReader output)
 
 { up = upload()}
+
+<div class="font-mono text-xs py-2">
+
 {up}
+
+</div>
 
 <br>
 
@@ -205,4 +225,17 @@ Standard Ellx progress indicator
 - *dur* | '' | (String)
 - *fill* | 'default' | (String)
 
-{ spinner({ size: 50, dur: 10 }) }
+{ spinner({ size: 70 }) }
+
+----
+
+#### Interval
+
+Return specified value every `n` ms.
+
+- **PROPS**
+- *size* | 20 | Input file content as text
+- *dur* | '' | (String)
+- *fill* | 'default' | (String)
+
+{ interval({ gen: () => Math.random(), ms: 500 }) }
