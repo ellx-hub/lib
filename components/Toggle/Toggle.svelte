@@ -1,5 +1,5 @@
 <script>
-	export let value = false;
+  export let value = false;
   export let label = '';
 </script>
 
@@ -15,7 +15,7 @@
     cursor: pointer;
     margin-right: 4px;
   }
-  
+
   .thumb {
     width: 14px;
     height: 14px;
@@ -24,29 +24,29 @@
     border-radius: 50%;
     transition: all .2s;
   }
-  
+
   .off .thumb {
     background: gray;
     left: 2px;
   }
-  
+
   :global(.mode-dark) .on {
     border-color: white;
   }
-  
+
   .on {
     border: 1px solid black;
   }
-  
+
   :global(.mode-dark) .on .thumb {
     background: white;
   }
-  
+
   .on .thumb {
     background: black;
     left: 22px;
   }
-  
+
   label {
     font-family: Consolas, monaco, monospace;
     font-size: 12px;
@@ -60,7 +60,7 @@
 
 <div class="flex items-center">
   <div class:on={value} class:off={!value} class="track" on:click={() => value = !value}>
-    <div class="thumb"/>	
+    <div class="thumb"/>
   </div>
   <label>
     {label}

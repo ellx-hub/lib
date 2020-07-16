@@ -17,17 +17,17 @@
     pointer-events: none;
     color: lightGray;
   }
-  
+
   :global(.mode-dark) .disabled {
     color: gray;
   }
 </style>
 
 <Input
-	type="range"
-	bind:value
-	{size}
-	{dense}
-	{min}
-	{max}
-	{...$$props} />
+  type="range"
+  bind:value
+  {size}
+  {dense}
+  {min}
+  {max}
+  {...$$props} />

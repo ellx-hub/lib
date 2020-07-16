@@ -1,6 +1,6 @@
 <script>
-	export let value;
-  
+  export let value;
+
   function read(e) {
     var file = e.target.files.item(0);
     var reader = new FileReader();

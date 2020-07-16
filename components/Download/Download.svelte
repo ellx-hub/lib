@@ -1,5 +1,5 @@
 <script>
-	import download from '/utils/download.js';
+  import download from '/utils/download.js';
   import Button from '/components/Button/Button.svelte';
 
   export let value;
@@ -9,9 +9,9 @@
 </script>
 
 <Button
-	{...$$props}
+  {...$$props}
   disabled={$$props.disabled || (!value || !value.length)}
-	on:click={() => download(filename, new Blob([value], { type }))}
+  on:click={() => download(filename, new Blob([value], { type }))}
 >
   <slot>{label}</slot>
 </Button>

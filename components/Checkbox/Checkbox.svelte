@@ -1,11 +1,11 @@
 <script>
   export let value = false;
-	export let label = '';
+  export let label = '';
   export let dense = false;
   export let stale = false;
   export let disabled = stale;
 
-	// TODO: import codicons? how to ship single icon?
+  // TODO: import codicons? how to ship single icon?
 </script>
 
 <style>
@@ -17,19 +17,19 @@
     font-size: 12px;
   }
 
-	label span {
+  label span {
     margin-left: 4px;
   }
-  
+
   .dense {
     height: 20px;
   }
-  
+
   .disabled {
     pointer-events: none;
     color: lightGray;
   }
-  
+
   :global(.mode-dark) .disabled {
     color: gray;
   }

@@ -2,8 +2,8 @@
   import { scale } from 'svelte/transition';
   import Spinner from '/components/Spinner/Spinner.svelte';
 
-	export let label = '';
-	export let onClick = () => {};
+  export let label = '';
+  export let onClick = () => {};
   export let dense = false;
   export let size = 2;
   export let stale = false;
@@ -12,7 +12,7 @@
 </script>
 
 <style>
-	button {
+  button {
     font-family: Consolas, monaco, monospace;
     height: 34px;
     font-weight: bold;
@@ -25,28 +25,28 @@
     border: 1px solid black;
     transition: all .1s ease-in;
   }
-  
+
   button:hover {
     cursor: pointer;
     border: 2px solid black;
   }
-  
+
   button.dense {
     width: 100px;
     height: 20px;
     font-size: 0.7rem;
   }
-  
+
   :global(.mode-dark) button {
     background: transparent;
     color: white;
     border: 1px solid white;
   }
-  
+
   :global(.mode-dark) button:hover {
     border: 2px solid white;
   }
-  
+
   .disabled, .loading {
     pointer-events: none;
     color: lightGray;
@@ -54,7 +54,7 @@
     cursor: default;
     border: 1px solid lightGray;
   }
-  
+
   :global(.mode-dark) .disabled {
     background: #AAA;
     color: gray;
@@ -64,20 +64,20 @@
 
 <button
   class:disabled
-	class:loading
+  class:loading
   style="width: {(dense ? 1 : size) * 100}px"
   class:dense
   {...$$props}
   on:click={onClick}
-	on:click
+  on:click
 >
   <slot>
-  	{#if loading || stale}
-    	<div in:scale>
-    		<Spinner />
-    	</div>
-  	{:else}
-    	{label}
+    {#if loading || stale}
+      <div in:scale>
+        <Spinner />
+      </div>
+    {:else}
+      {label}
     {/if}
   </slot>
 </button>
