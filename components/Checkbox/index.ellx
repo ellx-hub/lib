@@ -1,0 +1,38 @@
+version: 1.1
+nodes:
+  $1 = checkbox({ label: 'test' })
+  $2 = checkbox({ dense: true, label: 'dense' })
+  $3 = checkbox({ disabled: true, label: 'Disabled', dense: true })
+layout:
+[
+  [
+    {
+      "value": "Default:"
+    }
+  ],
+  [
+    {
+      "node": "$1"
+    }
+  ],,
+  [
+    {
+      "value": "Dense:"
+    }
+  ],
+  [
+    {
+      "node": "$2"
+    }
+  ],,
+  [
+    {
+      "value": "Disabled:"
+    }
+  ],
+  [
+    {
+      "node": "$3"
+    }
+  ]
+]
