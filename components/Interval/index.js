@@ -8,8 +8,6 @@ class Interval {
   async *output() {
     while (true) {
       yield this.gen();
-      
-      console.log(this.gen, this.ms);
 
       await delay(this.ms);
     }
@@ -18,6 +16,14 @@ class Interval {
   update(props) {
     this.gen = props.gen;
     this.ms = props.ms;
+    
+    if (!this.gen) {
+      throw new Error('`gen` is not specified');
+    }
+    
+    if (!this.ms) {
+      throw new Error('`ms` is not specified');
+    }
   }
 }
 

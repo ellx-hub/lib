@@ -231,11 +231,10 @@ Standard Ellx progress indicator
 
 #### Interval
 
-Return specified value every `n` ms.
+Returns output of `gen` function every `ms` milliseconds.
 
 - **PROPS**
-- *size* | 20 | Input file content as text
-- *dur* | '' | (String)
-- *fill* | 'default' | (String)
+- *ms* | null | (Number)
+- *gen* | () => {} | (Function)
 
 { interval({ gen: () => Math.random(), ms: 500 }) }
