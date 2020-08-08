@@ -28,7 +28,7 @@
 
   button:hover {
     cursor: pointer;
-    border: 2px solid black;
+    box-shadow: 0px 0px 0px 1px inset;
   }
 
   button.dense {
@@ -41,10 +41,6 @@
     background: transparent;
     color: white;
     border: 1px solid white;
-  }
-
-  :global(.mode-dark) button:hover {
-    border: 2px solid white;
   }
 
   .disabled, .loading {
