@@ -21,26 +21,26 @@
     border: 1px solid black;
   }
 
-  .outlined:focus {
-    border-width: 2px;
-  }
-
   :global(.mode-dark) .outlined {
     border: 1px solid white;
   }
 
-  input:focus {
-    border-bottom: 2px solid black;
-  }
-
   :global(.mode-dark) select {
-    background: transparent;
     color: white;
-    border-bottom: 1px dashed white;
+    border-bottom: 1px dashed lightGray;
   }
 
   :global(.mode-dark) select:focus {
-    border-bottom: 2px solid white;
+    box-shadow: 0px 1px 0px 0px white;
+  }
+
+	select:focus {
+    border-style: solid;
+    box-shadow: 0px 1px 0px 0px black;
+  }
+
+	.outlined:focus, :global(.mode-dark) .outlined:focus {
+    box-shadow: 0 0 0 1px inset;
   }
 
   .dense {
