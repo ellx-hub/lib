@@ -45,22 +45,37 @@ title: Ellx Standard Library
 
 ##### Basic
 { input({ label: 'My field with a label'}) }
+```
+{ input({ label: 'My field with a label'}) }
+```
 
 ##### Numeric
 Arbitrary props can be passed directly to the input including type.
 
 { input({ label: 'Numeric field', type: 'number' }) }
+```
+{ input({ label: 'Numeric field', type: 'number' }) }
+```
 
 ##### Dense
 Most components support `dense` prop to be able to fit in exactly one cell on a sheet (size 20x100px).
 
 { input({ label: 'Numeric field', dense: true }) }
+```
+{ input({ label: 'Numeric field', dense: true }) }
+```
 
 ##### Disabled
 { input({ label: "Disabled", disabled: true }) }
+```
+{ input({ label: "Disabled", disabled: true }) }
+```
 
 ##### Outlined
 { input({ label: "Outlined", outlined: true }) }
+```
+{ input({ label: "Outlined", outlined: true }) }
+```
 
 <br>
 
@@ -80,18 +95,33 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 
 ##### Basic
 { button({ label: "Submit" }) }
+```
+{ button({ label: "Submit" }) }
+```
 
 ##### Dense
 { button({ label: "Submit", dense: true }) }
+```
+{ button({ label: "Submit", dense: true }) }
+```
 
 ##### Disabled
 { button({ label: "Disabled", disabled: true }) }
+```
+{ button({ label: "Disabled", disabled: true }) }
+```
 
 ##### Loading
 { button({ label: "Loading", loading: true }) }
+```
+{ button({ label: "Loading", loading: true }) }
+```
 
 ##### Stale
 { button({ label: "Stale", stale: true }) }
+```
+{ button({ label: "Stale", stale: true }) }
+```
 
 <br>
 
@@ -109,15 +139,27 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 
 <small>*Selected value: {s}*</small>
 { s = select({ options: ['One', 'Two', 'Three'] })}
+```
+{ s = select({ options: ['One', 'Two', 'Three'] })}
+```
 
 ##### Dense
 { select({ options: ['One', 'Two', 'Three'], dense: true }) }
+```
+{ select({ options: ['One', 'Two', 'Three'], dense: true }) }
+```
 
 ##### Disabled
 { select({ options: ['One', 'Two', 'Three'], disabled: true }) }
+```
+{ select({ options: ['One', 'Two', 'Three'], disabled: true }) }
+```
 
 ##### Outlined
 { select({ options: ['One', 'Two', 'Three'], outlined: true }) }
+```
+{ select({ options: ['One', 'Two', 'Three'], outlined: true }) }
+```
 
 
 <br>
@@ -134,6 +176,9 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *stale* | false | (Boolean)
 
 { checkbox({ label: "Submit" }) }
+```
+{ checkbox({ label: "Submit" }) }
+```
 
 <br>
 
@@ -151,9 +196,15 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 
 ##### Vertical (default)
 { radio({ options: typeOptions }) }
+```
+{ radio({ options: typeOptions }) }
+```
 
 ##### Horizontal
 { radio({ options: typeOptions, direction: 'horizontal' }) }
+```
+{ radio({ options: typeOptions, direction: 'horizontal' }) }
+```
 
 ----
 
@@ -164,6 +215,9 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - *label* | '' | (String)
 
 { toggle({ label: 'My switch' }) }
+```
+{ toggle({ label: 'My switch' }) }
+```
 
 #### Slider
 
@@ -178,6 +232,10 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 
 { r = slider() }
 {r}
+```
+{ r = slider() }
+{r}
+```
 
 <br>
 
@@ -191,6 +249,9 @@ Upload component exposes its only prop `value` which returns content of a file a
 - *value* | null | (FileReader output)
 
 { up = upload()}
+```
+{ up = upload()}
+```
 
 <div class="font-mono text-xs py-2">
 
@@ -213,6 +274,9 @@ Download `value` as a file with MIME type `type`. Disabled if value is empty or 
 - *filename* | '' | (String)
 
 { download({ value: up || 'test' }) }
+```
+{ download({ value: up || 'test' }) }
+```
 
 ----
 
@@ -226,6 +290,9 @@ Standard Ellx progress indicator
 - *fill* | 'default' | (String)
 
 { spinner({ size: 70 }) }
+```
+{ spinner({ size: 70 }) }
+```
 
 ----
 
@@ -238,3 +305,6 @@ Returns output of `gen` function every `ms` milliseconds.
 - *gen* | () => {} | (Function)
 
 { interval({ gen: () => Math.random(), ms: 500 }) }
+```
+{ interval({ gen: () => Math.random(), ms: 500 }) }
+```
