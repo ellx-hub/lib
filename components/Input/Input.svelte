@@ -15,6 +15,7 @@
     font-family: Consolas, monaco, monospace;
     height: 34px;
     border-radius: 0;
+    padding-left: 4px;
     box-sizing: border-box;
     outline: none;
     border-bottom: 1px dashed black;
@@ -41,19 +42,16 @@
   }
 
   :global(.mode-dark) input:focus {
-    border-bottom: 2px solid white;
+    box-shadow: 0px 1px 0px 0px white;
   }
 
-  :global(.mode-dark) .outlined:focus {
-    border: 2px solid white;
+	input:focus {
+    border-style: solid;
+    box-shadow: 0px 1px 0px 0px black;
   }
 
-  .outlined:focus {
-    border: 2px solid black;
-  }
-
-  input:focus {
-    border-bottom: 2px solid black;
+  .outlined:focus, :global(.mode-dark) .outlined:focus {
+    box-shadow: 0 0 0 1px inset;
   }
 
   label {
