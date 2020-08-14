@@ -18,11 +18,15 @@ const ellxify = Component => class {
       yield this.value;
     }
   }
+  
+  stale() {
+    this.update({ stale: true });
+  }
 
   update(props) {
     this.instance = React.createElement(
       Component,
-      { value: this.value, ...props, onChange: (v) => this.emit && this.emit(v) }
+      { value: this.value, ...props, onChange: (v) => this.emit && this.emit(v), stale: false }
     );
     this.render(this.container);
   }
