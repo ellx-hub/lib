@@ -5,10 +5,11 @@ const ellxify = Component => class {
   constructor(props, { initState }) {
     this.value = initState;
     this.container = null;
+    this.currentProps = { value: this.value, ...props, onChange: (v) => this.emit && this.emit(v) };
 
     this.instance = React.createElement(
       Component,
-      { value: this.value, ...props, onChange: (v) => this.emit && this.emit(v) }
+      this.currentProps
     );
   }
 
@@ -18,15 +19,22 @@ const ellxify = Component => class {
       yield this.value;
     }
   }
-  
+
   stale() {
-    this.update({ stale: true });
+    this.update({ ...this.currentProps, stale: true });
   }
 
   update(props) {
+    this.currentProps = {
+      stale: false,
+      value: this.value,
+      ...props,
+      onChange: (v) => this.emit && this.emit(v)
+    };
+
     this.instance = React.createElement(
       Component,
-      { stale: false, value: this.value, ...props, onChange: (v) => this.emit && this.emit(v) }
+      this.currentProps,
     );
     this.render(this.container);
   }
