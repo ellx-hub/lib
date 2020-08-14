@@ -19,9 +19,16 @@ const ellxify = Component => class {
     });
     binding_callbacks.push(() => bind(this.instance, 'value', value => this.emit && this.emit(value)));
   }
+  
+  stale() {
+    this.update({ stale: true });
+  }
 
-  update(props) {
-      this.instance.$set(props);
+  update(props = {}) {
+    this.instance.$set({
+      ...props,
+      stale: false,
+    });
   }
 
   dispose() {
