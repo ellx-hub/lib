@@ -26,7 +26,7 @@ const ellxify = Component => class {
   update(props) {
     this.instance = React.createElement(
       Component,
-      { value: this.value, ...props, onChange: (v) => this.emit && this.emit(v), stale: false }
+      { stale: false, value: this.value, ...props, onChange: (v) => this.emit && this.emit(v) }
     );
     this.render(this.container);
   }
