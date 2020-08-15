@@ -7,7 +7,7 @@
   export let disabled = stale;
   export let outlined = false;
 
-  $: hidden = ((size * 12) - (value.length + label.length)) < -1;
+  $: hidden = ((size * 12) - ((value || '').length + (label || '').length)) < -1;
 </script>
 
 <style>
