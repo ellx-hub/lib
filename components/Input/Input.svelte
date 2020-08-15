@@ -45,13 +45,13 @@
     box-shadow: 0px 1px 0px 0px white;
   }
 
-	input:focus {
+	input:focus:not([type="range"]) {
     border-style: solid;
     box-shadow: 0px 1px 0px 0px black;
   }
 
   .outlined:focus, :global(.mode-dark) .outlined:focus {
-    box-shadow: 0 0 0 1px inset;
+    box-shadow: 0px 0px 0px 1px inset !important;
   }
 
   label {
