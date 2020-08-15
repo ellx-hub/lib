@@ -1,7 +1,6 @@
-## Ellx standard library
+# Ellx standard library
 
-
-### TODO:
+## TODO:
 
 - [x] Text field
 - [x] Button
