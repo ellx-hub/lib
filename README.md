@@ -1,14 +1,15 @@
 # Ellx standard library
 
 Ellx standard library contains a number of useful building blocks for user applications
-such as UI components, ellxify examples for different usecases (eg. Svelte and React wrappers),
-useful common patterns.
+such as UI components, ellxify examples for different usecases (eg. Svelte and React wrappers), useful common patterns.
 
 It should be viewed as accumulated general knowledge of how Ellx components should look like.
 
 Note that the library is in very active development phase, so breaking changes are expected.
 
-Feel free to open an issue or create a pull request in this repository.
+Please, help us improve [Ellx lib](https://github.com/ellx-hub/lib) by opening an [issue](https://github.com/ellx-hub/lib/issues) or a [pull request](https://github.com/ellx-hub/lib/pulls).
+
+Enjoy hacking with [Ellx](https://ellx.io) !
 
 ## TODO list
 
