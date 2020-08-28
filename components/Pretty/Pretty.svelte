@@ -1,15 +1,15 @@
 <script>
   import Tree from 'svelte-json-tree';
-	
+
 	export let value = "";
-  
+
   let showing = new Set();
 
 	function onClick(e) {
-    const fnNode = e.path.find(a => a.classList && 
+    const fnNode = e.path.find(a => a.classList &&
 			(a.classList.contains('Function') || showing.has(a))
 		);
-    
+
     if (fnNode) {
      	fnNode.classList.toggle('show');
       if (fnNode.classList.contains('show')) {
@@ -26,7 +26,7 @@
     padding: 0;
     margin: 0;
   }
-  
+
   .tree :global(.Function:before) {
     content: "[Function]";
     font-size: 12px;
@@ -34,7 +34,7 @@
     letter-spacing: normal;
     font-style: normal;
   }
-  
+
   .tree :global(.Function) {
     font-size: 1px;
     letter-spacing: -1px;
@@ -56,14 +56,14 @@
     word-wrap: break-word !important;
     white-space: break-spaces !important;
   }
-  
+
   .tree {
     padding: 1rem;
     border: 1px solid currentColor;
     background: white;
     max-width: 500px;
   }
-  
+
   :global(.mode-dark) .tree {
     background: #212121;
   }
@@ -72,4 +72,3 @@
 <div on:click={onClick} class="tree" style="--json-tree-font-family: monaco, monospace;">
 	<Tree {value} />
 </div>
-  

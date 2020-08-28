@@ -13,19 +13,19 @@ title: Ellx Standard Library
     background: #EEE;
     margin-bottom: 2rem;
   }
-  
+
   #md.wrapper .tree ul {
-  	background: transparent; 
+  	background: transparent;
   }
-  
+
   .mode-dark #md ul {
-    background: #444; 
+    background: #444;
   }
-  
+
   ul em, ul strong {
     letter-spacing: 0.4px;
   }
-  
+
   p {
     padding: 1rem 0;
   }
@@ -37,188 +37,217 @@ title: Ellx Standard Library
 
 #### Text field
 
-
 - **PROPS** <small>(name | default value | type)</small>
-- *value* | '' | (String)
-- *dense* | false | (Boolean)
-- *outlined* | false | (Boolean)
-- *size* | 2 | (Number)
-- *label* | '' | (String)
-- *disabled* | false | (Boolean)
-- *stale* | false | (Boolean)
+- _value_ | '' | (String)
+- _dense_ | false | (Boolean)
+- _outlined_ | false | (Boolean)
+- _size_ | 2 | (Number)
+- _label_ | '' | (String)
+- _disabled_ | false | (Boolean)
+- _stale_ | false | (Boolean)
 
 ##### Basic
+
 { input({ label: 'My field with a label'}) }
+
 ```
 { input({ label: 'My field with a label'}) }
 ```
 
 ##### Numeric
+
 Arbitrary props can be passed directly to the input including type.
 
 { input({ label: 'Numeric field', type: 'number' }) }
+
 ```
 { input({ label: 'Numeric field', type: 'number' }) }
 ```
 
 ##### Dense
+
 Most components support `dense` prop to be able to fit in exactly one cell on a sheet (size 20x100px).
 
 { input({ label: 'Numeric field', dense: true }) }
+
 ```
 { input({ label: 'Numeric field', dense: true }) }
 ```
 
 ##### Disabled
+
 { input({ label: "Disabled", disabled: true }) }
+
 ```
 { input({ label: "Disabled", disabled: true }) }
 ```
 
 ##### Outlined
+
 { input({ label: "Outlined", outlined: true }) }
+
 ```
 { input({ label: "Outlined", outlined: true }) }
 ```
 
 <br>
 
-----
+---
 
 #### Button
 
 - **PROPS**
-- *dense* | false | (Boolean)
-- *size* | 2 | (Number)
-- *label* | '' | (String)
-- *disabled* | false | (Boolean)
-- *stale* | false | (Boolean)
-- *loading* | false | (Boolean)
-- *onClick* | () => {} | (Function)
-
+- _dense_ | false | (Boolean)
+- _size_ | 2 | (Number)
+- _label_ | '' | (String)
+- _disabled_ | false | (Boolean)
+- _stale_ | false | (Boolean)
+- _loading_ | false | (Boolean)
+- _onClick_ | () => {} | (Function)
 
 ##### Basic
+
 { button({ label: "Submit" }) }
+
 ```
 { button({ label: "Submit" }) }
 ```
 
 ##### Dense
+
 { button({ label: "Submit", dense: true }) }
+
 ```
 { button({ label: "Submit", dense: true }) }
 ```
 
 ##### Disabled
+
 { button({ label: "Disabled", disabled: true }) }
+
 ```
 { button({ label: "Disabled", disabled: true }) }
 ```
 
 ##### Loading
+
 { button({ label: "Loading", loading: true }) }
+
 ```
 { button({ label: "Loading", loading: true }) }
 ```
 
 ##### Stale
+
 { button({ label: "Stale", stale: true }) }
+
 ```
 { button({ label: "Stale", stale: true }) }
 ```
 
 <br>
 
-----
+---
 
 #### Select
 
-- *value* | '' | (String)
-- *options* | [] | (Array)
-- *label* | '' | (String)
-- *outlined* | false | (Boolean)
-- *dense* | false | (Boolean)
-- *disabled* | false | (Boolean)
-- *stale* | false | (Boolean)
+- _value_ | '' | (String)
+- _options_ | [] | (Array)
+- _label_ | '' | (String)
+- _outlined_ | false | (Boolean)
+- _dense_ | false | (Boolean)
+- _disabled_ | false | (Boolean)
+- _stale_ | false | (Boolean)
 
-<small>*Selected value: {s}*</small>
+<small>_Selected value: {s}_</small>
 { s = select({ options: ['One', 'Two', 'Three'] })}
+
 ```
 { s = select({ options: ['One', 'Two', 'Three'] })}
 ```
 
 ##### Dense
+
 { select({ options: ['One', 'Two', 'Three'], dense: true }) }
+
 ```
 { select({ options: ['One', 'Two', 'Three'], dense: true }) }
 ```
 
 ##### Disabled
+
 { select({ options: ['One', 'Two', 'Three'], disabled: true }) }
+
 ```
 { select({ options: ['One', 'Two', 'Three'], disabled: true }) }
 ```
 
 ##### Outlined
-{ select({ options: ['One', 'Two', 'Three'], outlined: true }) }
-```
-{ select({ options: ['One', 'Two', 'Three'], outlined: true }) }
-```
 
+{ select({ options: ['One', 'Two', 'Three'], outlined: true }) }
+
+```
+{ select({ options: ['One', 'Two', 'Three'], outlined: true }) }
+```
 
 <br>
 
-----
+---
 
 #### Checkbox
 
 - **PROPS** <small>(name | default value | type)</small>
-- *value* | '' | (String)
-- *dense* | false | (Boolean)
-- *label* | '' | (String)
-- *disabled* | false | (Boolean)
-- *stale* | false | (Boolean)
+- _value_ | '' | (String)
+- _dense_ | false | (Boolean)
+- _label_ | '' | (String)
+- _disabled_ | false | (Boolean)
+- _stale_ | false | (Boolean)
 
 { checkbox({ label: "Submit" }) }
+
 ```
 { checkbox({ label: "Submit" }) }
 ```
 
 <br>
 
-----
-
+---
 
 #### Radio button
 
 - **PROPS** <small>(name | default value | type)</small>
-- *value* | '' | (String)
-- *options* | [] | (Array)
-- *direction* | (horizontal|vertical) | (Enum)
-- *disabled* | false | (Boolean)
-- *stale* | false | (Boolean)
+- _value_ | '' | (String)
+- _options_ | [] | (Array)
+- _direction_ | (horizontal|vertical) | (Enum)
+- _disabled_ | false | (Boolean)
+- _stale_ | false | (Boolean)
 
 ##### Vertical (default)
+
 { radio({ options: typeOptions }) }
+
 ```
 { radio({ options: typeOptions }) }
 ```
 
 ##### Horizontal
+
 { radio({ options: typeOptions, direction: 'horizontal' }) }
+
 ```
 { radio({ options: typeOptions, direction: 'horizontal' }) }
 ```
 
-----
+---
 
 #### Toggle
 
 - **PROPS**
-- *value* | false | (Boolean)
-- *label* | '' | (String)
+- _value_ | false | (Boolean)
+- _label_ | '' | (String)
 
 { toggle({ label: 'My switch' }) }
+
 ```
 { toggle({ label: 'My switch' }) }
 ```
@@ -226,16 +255,17 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 #### Slider
 
 - **PROPS**
-- *value* | 50 | (Number)
-- *min* | 50 | (Number)
-- *max* | 50 | (Number)
-- *dense* | false | (Boolean)
-- *size* | 2 | (Number)
-- *disabled* | false | (Boolean)
-- *stale* | false | (Boolean)
+- _value_ | 50 | (Number)
+- _min_ | 50 | (Number)
+- _max_ | 50 | (Number)
+- _dense_ | false | (Boolean)
+- _size_ | 2 | (Number)
+- _disabled_ | false | (Boolean)
+- _stale_ | false | (Boolean)
 
 { r = slider() }
 {r}
+
 ```
 { r = slider() }
 {r}
@@ -243,16 +273,17 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 
 <br>
 
-----
+---
 
 #### Upload
 
 Upload component exposes its only prop `value` which returns content of a file attached to the basic file input. Use `JSON.parse` to parse JSON and `ellx-hub/lib/utils/csv.js` to parse CSV files.
 
 - **PROPS**
-- *value* | null | (FileReader output)
+- _value_ | null | (FileReader output)
 
 { up = upload()}
+
 ```
 { up = upload()}
 ```
@@ -265,64 +296,68 @@ Upload component exposes its only prop `value` which returns content of a file a
 
 <br>
 
-----
+---
 
 #### Download
 
 Download `value` as a file with MIME type `type`. Disabled if value is empty or null.
 
 - **PROPS**
-- *value* | null | Input file content as text
-- *label* | '' | (String)
-- *type* | 'text/plain' | (String)
-- *filename* | '' | (String)
+- _value_ | null | Input file content as text
+- _label_ | '' | (String)
+- _type_ | 'text/plain' | (String)
+- _filename_ | '' | (String)
 
 { download({ value: up || 'test' }) }
+
 ```
 { download({ value: up || 'test' }) }
 ```
 
-----
+---
 
 #### Spinner
 
 Standard Ellx progress indicator
 
 - **PROPS**
-- *size* | 20 | Input file content as text
-- *dur* | '' | (String)
-- *fill* | 'default' | (String)
+- _size_ | 20 | Input file content as text
+- _dur_ | '' | (String)
+- _fill_ | 'default' | (String)
 
 { spinner({ size: 70 }) }
+
 ```
 { spinner({ size: 70 }) }
 ```
 
-----
+---
 
 #### Interval
 
 Returns output of `gen` function every `ms` milliseconds.
 
 - **PROPS**
-- *ms* | null | (Number)
-- *gen* | () => {} | (Function)
+- _ms_ | null | (Number)
+- _gen_ | () => {} | (Function)
 
 { interval({ gen: () => Math.random(), ms: 500 }) }
+
 ```
 { interval({ gen: () => Math.random(), ms: 500 }) }
 ```
 
-----
+---
 
 #### Pretty
 
 Tiny wrapper over [svelte-json-tree](https://github.com/tanhauhau/svelte-json-tree). Outputs any object as an expandable treeview. Useful for debugging or displaying object values in real time.
 
 - **PROPS**
-- *value* | null | any
+- _value_ | null | any
 
 { pretty({ gen: () => Math.random(), ms: 500 }) }
+
 ```
 { interval({ gen: () => Math.random(), ms: 500 }) }
 ```
