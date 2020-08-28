@@ -3,7 +3,7 @@ title: Ellx Standard Library
 ---
 
 <style>
-  #md.wrapper ul, #md .container ul {
+  #md.wrapper ul {
     font-size: 13px;
     line-height: 2;
     list-style-type: none;
@@ -12,6 +12,10 @@ title: Ellx Standard Library
     margin: 1rem 0;
     background: #EEE;
     margin-bottom: 2rem;
+  }
+  
+  #md.wrapper .tree ul {
+  	background: transparent; 
   }
   
   .mode-dark #md ul {
@@ -305,6 +309,20 @@ Returns output of `gen` function every `ms` milliseconds.
 - *gen* | () => {} | (Function)
 
 { interval({ gen: () => Math.random(), ms: 500 }) }
+```
+{ interval({ gen: () => Math.random(), ms: 500 }) }
+```
+
+----
+
+#### Pretty
+
+Tiny wrapper over [svelte-json-tree](https://github.com/tanhauhau/svelte-json-tree). Outputs any object as an expandable treeview. Useful for debugging or displaying object values in real time.
+
+- **PROPS**
+- *value* | null | any
+
+{ pretty({ gen: () => Math.random(), ms: 500 }) }
 ```
 { interval({ gen: () => Math.random(), ms: 500 }) }
 ```

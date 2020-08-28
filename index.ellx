@@ -15,6 +15,7 @@ nodes:
   $9 = button({ label: "Submit", onClick: {} })
   $24 = button({ label: "Submit", onClick: {}, dense: true })
   $22 = toggle({ label: 'My switch' })
+  $25 = pretty(button())
   $10 = slider({ min: 100, max: 10000 })
   loginDense = input({ label: 'Login', dense: true })
   typeOptions = ['quantitative', 'nominal', 'temporal', 'ordinal']
@@ -83,7 +84,12 @@ layout:
     {
       "node": "$22"
     }
-  ],,,,
+  ],,,
+  [,,,,,,,,
+    {
+      "node": "$25"
+    }
+  ],
   [,
     {
       "node": "$10"
