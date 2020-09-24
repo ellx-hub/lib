@@ -15,7 +15,7 @@ title: Ellx Standard Library
   }
 
   #md.wrapper .tree ul {
-  	background: transparent;
+    background: transparent;
   }
 
   .mode-dark #md ul {

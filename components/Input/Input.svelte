@@ -45,7 +45,7 @@
     box-shadow: 0px 1px 0px 0px white;
   }
 
-	input:focus:not([type="range"]) {
+  input:focus:not([type="range"]) {
     border-style: solid;
     box-shadow: 0px 1px 0px 0px black;
   }
