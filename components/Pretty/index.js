@@ -1,6 +1,8 @@
 import Pretty from './Pretty.svelte';
 import ellxify from '/utils/svelte.js';
 
-export const pretty = ellxify(Pretty);
+const ellxified = ellxify(Pretty);
 
-export default value => pretty({ value });
+export const pretty = value => ellxified({ value });
+
+export default pretty;
