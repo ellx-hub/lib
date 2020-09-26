@@ -3,7 +3,6 @@ import Vue from 'vue';
 const ellxify = Component => class {
   constructor(props, { initState }) {
     this.value = initState;
-    this.target = document.createElement('div');
     this.emit = () => {};
 
     const ComponentClass = Vue.extend(Component);
@@ -24,8 +23,6 @@ const ellxify = Component => class {
 
   update(props = {}) {
     for (let key in props) {
-      if (key === '__EllxMeta__') continue;
-
       this.instance.$props[key] = props[key];
     }
     this.instance.$props.stale = false;
