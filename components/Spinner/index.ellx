@@ -1,0 +1,11 @@
+version: 1.1
+nodes:
+  $1 = spinner({ size: 160 })
+layout:
+[
+  [,
+    {
+      "node": "$1"
+    }
+  ]
+]
