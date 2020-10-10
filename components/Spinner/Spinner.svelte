@@ -66,11 +66,18 @@
   }
 </style>
 
-<svg class="{$$props.class || ''} rotating" width="{size}px" height="{size}px" viewBox="0 0 400 400"  xmlns="http://www.w3.org/2000/svg">
-  <g>
-    <circle class="collapsing-1" {fill} r="25" id="dot_1" cy="110" cx="200" />
-    <circle class="collapsing-2" {fill} r="25" id="dot_2" cy="250" cx="100" />
-    <circle class="collapsing-3" {fill} r="25" id="dot_3" cy="250" cx="300" />
-  </g>
-</svg>
-
+<div class="relative">
+  <svg
+    class="{$$props.class || ''} rotating absolute top-0 left-0"
+    width="{size}px"
+    height="{size}px"
+    viewBox="0 0 400 400"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g>
+      <circle class="collapsing-1" {fill} r="25" id="dot_1" cy="110" cx="200" />
+      <circle class="collapsing-2" {fill} r="25" id="dot_2" cy="250" cx="100" />
+      <circle class="collapsing-3" {fill} r="25" id="dot_3" cy="250" cx="300" />
+    </g>
+  </svg>
+</div>
