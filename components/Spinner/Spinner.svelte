@@ -1,16 +1,9 @@
 <script>
   export let size = 20;
-  export let fill = "default";
+  export let fill = "currentColor";
 </script>
 
 <style>
-  .ellipse {
-    fill: black;
-  }
-  
-  :global(.mode-dark) {
-    fill: white;
-  }
   @keyframes rotating {
     0% {
       transform: rotate(0deg);
