@@ -1,23 +1,20 @@
 <script>
   import { onMount } from "svelte";
+  import { writable } from "svelte/store";
   export let size = 20;
-  export let fill = "#237EB3";
+  export let fill = "currentColor";
 
-  let canvas, ctx;
-
-  let angles = [90, 210, 330];
-  let center, r, ri, rmax, tm;
+  const angles = writable([90, 210, 330]);
   let running = true;
 
-  function circle(angle) {
-    const x = center + r * Math.cos(-angle * Math.PI/180);
-    const y = center + r * Math.sin(-angle * Math.PI/180);
+  let center = 200;
+  let r, rmax;
+  r = rmax = 120;
+  let ri = 25;
+  let tm;
 
-    ctx.beginPath();
-    ctx.arc(x, y, ri - (r * 0.05), 0, 2 * Math.PI);
-    ctx.fill();
-    ctx.closePath();
-  }
+  const x = angle => center + r * Math.cos(-angle * Math.PI / 180);
+  const y = angle => center + r * Math.sin(-angle * Math.PI / 180);
 
   let growing = false;
 
@@ -34,10 +31,7 @@
   function draw() {
     if (!running) return;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    angles.forEach(circle);
-    angles = angles.map(i => i + 2);
+    $angles = $angles.map(i => i + 2);
 
     checkGrow();
 
@@ -45,13 +39,6 @@
   }
 
   onMount(() => {
-    ctx = canvas.getContext("2d");
-    ctx.fillStyle = fill;
-
-    center = size / 2;
-    r = rmax = size / 3;
-    ri = size / 16;
-
     draw();
 
     return () => {
@@ -62,13 +49,15 @@
 </script>
 
 <style>
-  canvas {
+  svg {
     margin: 0 auto;
   }
 </style>
 
-<canvas
-  width={size}
-  height={size}
-  bind:this={canvas}
-/>
+<svg class="{$$props.class || ''} z-40" width="{size}px" height="{size}px" viewBox="0 0 400 400"  xmlns="http://www.w3.org/2000/svg">
+  <g>
+    {#each $angles as angle}
+      <circle fill={fill} r={ri + (r * 0.1)} cx={x(angle)} cy={y(angle)} />
+    {/each}
+  </g>
+</svg>
