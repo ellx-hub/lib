@@ -51,16 +51,15 @@
 <style>
   svg {
     margin: 0 auto;
-  }
-  circle {
-    will-change: translate;
+    backdrop-filter: blur(0px);
+    background: transparent;
   }
 </style>
 
 <svg class="{$$props.class || ''} z-40" width="{size}px" height="{size}px" viewBox="0 0 400 400"  xmlns="http://www.w3.org/2000/svg">
   <g>
     {#each $angles as angle}
-      <circle fill={fill} r={ri} cx=0 cy=0 style="transform: translate({x(angle)}px, {y(angle)}px)" />
+      <circle {fill} r={ri} cx=0 cy=0 style="transform: translate({x(angle)}px, {y(angle)}px)" />
     {/each}
   </g>
 </svg>
