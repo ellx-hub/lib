@@ -6,7 +6,7 @@
   let canvas, ctx;
 
   let angles = [90, 210, 330];
-  let center, r, ri, rmax;
+  let center, r, ri, rmax, tm;
   let running = true;
 
   function circle(angle) {
@@ -23,10 +23,10 @@
 
   function checkGrow() {
     if (growing) {
-      r *= 1.11;
+      r *= 1.25;
       if (r >= rmax) growing = false;
     } else {
-      r *= 0.95;
+      r *= 0.9;
       if (r <= 1) growing = true;
     }
   }
@@ -41,7 +41,7 @@
 
     checkGrow();
 
-    requestAnimationFrame(draw);
+    tm = setTimeout(() => requestAnimationFrame(draw), 40);
   }
 
   onMount(() => {
@@ -56,6 +56,7 @@
 
     return () => {
       running = false;
+      clearTimeout(tm);
     }
   })
 </script>
