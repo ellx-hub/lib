@@ -52,6 +52,9 @@
   svg {
     margin: 0 auto;
   }
+  circle {
+    will-change: translate;
+  }
 </style>
 
 <svg class="{$$props.class || ''} z-40" width="{size}px" height="{size}px" viewBox="0 0 400 400"  xmlns="http://www.w3.org/2000/svg">
