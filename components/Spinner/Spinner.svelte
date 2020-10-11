@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
-  export let size = 20;
+  export let size = 160;
   export let fill = "currentColor";
 
   const angles = writable([90, 210, 330]);
@@ -57,7 +57,7 @@
 <svg class="{$$props.class || ''} z-40" width="{size}px" height="{size}px" viewBox="0 0 400 400"  xmlns="http://www.w3.org/2000/svg">
   <g>
     {#each $angles as angle}
-      <circle fill={fill} r={ri + (r * 0.1)} cx={x(angle)} cy={y(angle)} />
+      <circle fill={fill} r={ri} cx=0 cy=0 style="transform: translate({x(angle)}px, {y(angle)}px)" />
     {/each}
   </g>
 </svg>
