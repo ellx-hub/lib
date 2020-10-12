@@ -322,7 +322,7 @@ Standard Ellx progress indicator
 
 - **PROPS**
 - _size_ | 20 | Input file content as text
-- _fill_ | '#237EB3' | (String)
+- _fill_ | '#000000' | (String)
 
 { spinner({ size: 70 }) }
 

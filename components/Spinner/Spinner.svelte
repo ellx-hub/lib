@@ -1,65 +1,56 @@
 <script>
   import { onMount } from "svelte";
-  import { writable } from "svelte/store";
+
   export let size = 160;
-  export let fill = "currentColor";
+  export let fill = "#000000";
 
-  const angles = writable([90, 210, 330]);
-  let running = true;
+  export let rPeriod = 2000;
+  export let wPeriod = 3000;
 
-  let center = 200;
-  let r, rmax;
-  r = rmax = 120;
-  let ri = 25;
-  let tm;
+  const center = size * 0.5;
+  const dotRadius = size / 16;
 
-  const x = angle => center + r * Math.cos(-angle * Math.PI / 180);
-  const y = angle => center + r * Math.sin(-angle * Math.PI / 180);
+  const start = Date.now();
 
-  let growing = false;
-
-  function checkGrow() {
-    if (growing) {
-      r *= 1.25;
-      if (r >= rmax) growing = false;
-    } else {
-      r *= 0.9;
-      if (r <= 1) growing = true;
-    }
-  }
+  let canvas, ctx;
 
   function draw() {
-    if (!running) return;
+    const dt = Math.PI * (Date.now() - start);
+    let r = Math.cos(dt / rPeriod);
+    r *= r * size * 3 / 8;
+    const w = 2 * dt / wPeriod;
 
-    $angles = $angles.map(i => i + 2);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    checkGrow();
-
-    tm = setTimeout(() => requestAnimationFrame(draw), 40);
+    for (let k of [3, 7, 11]) {
+      ctx.beginPath();
+      ctx.arc(
+        center + r * Math.cos(k * Math.PI / 6 + w),
+        center - r * Math.sin(k * Math.PI / 6 + w),
+        dotRadius,
+        0, 2 * Math.PI
+      );
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
   }
 
   onMount(() => {
-    draw();
+    ctx = canvas.getContext('2d');
+    ctx.fillStyle = fill;
+    requestAnimationFrame(draw);
+  });
 
-    return () => {
-      running = false;
-      clearTimeout(tm);
-    }
-  })
 </script>
 
 <style>
-  svg {
+  canvas {
     margin: 0 auto;
-    backdrop-filter: blur(0px);
-    background: transparent;
   }
 </style>
 
-<svg class="{$$props.class || ''} z-40" width="{size}px" height="{size}px" viewBox="0 0 400 400"  xmlns="http://www.w3.org/2000/svg">
-  <g>
-    {#each $angles as angle}
-      <circle {fill} r={ri} cx=0 cy=0 style="transform: translate({x(angle)}px, {y(angle)}px)" />
-    {/each}
-  </g>
-</svg>
+<canvas
+  width={size}
+  height={size}
+  bind:this={canvas}
+/>
