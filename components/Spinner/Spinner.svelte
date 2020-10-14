@@ -1,8 +1,8 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
 
-  export let size = 160;
-  export let fill = "#000000";
+  export let size = 20;
+  export let fill = "currentColor";
 
   export let rPeriod = 2000;
   export let wPeriod = 3000;
@@ -12,7 +12,7 @@
 
   const start = Date.now();
 
-  let canvas, ctx;
+  let canvas, ctx, container;
 
   function draw() {
     const dt = Math.PI * (Date.now() - start);
@@ -37,20 +37,19 @@
 
   onMount(() => {
     ctx = canvas.getContext('2d');
-    ctx.fillStyle = fill;
-    requestAnimationFrame(draw);
+    tick().then(() => {
+      ctx.fillStyle = window.getComputedStyle(container).getPropertyValue('color');
+      requestAnimationFrame(draw);
+    });
   });
 
 </script>
 
-<style>
-  canvas {
-    margin: 0 auto;
-  }
-</style>
-
-<canvas
-  width={size}
-  height={size}
-  bind:this={canvas}
-/>
+<div bind:this={container} style="margin: 0 auto; color: {fill};">
+  <canvas
+    style="margin: 0 auto;"
+    width={size}
+    height={size}
+    bind:this={canvas}
+  />
+</div>
