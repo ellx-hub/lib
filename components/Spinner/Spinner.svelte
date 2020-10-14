@@ -15,6 +15,8 @@
   let canvas, ctx, container;
 
   function draw() {
+    if (!running) return;
+
     const dt = Math.PI * (Date.now() - start);
     let r = Math.cos(dt / rPeriod);
     r *= r * size * 3 / 8;
@@ -41,6 +43,8 @@
       ctx.fillStyle = window.getComputedStyle(container).getPropertyValue('color');
       requestAnimationFrame(draw);
     });
+
+    return () => (running = false);
   });
 
 </script>
