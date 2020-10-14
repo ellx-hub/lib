@@ -70,7 +70,7 @@
   <slot>
     {#if loading || stale}
       <div in:scale>
-        <Spinner />
+        <Spinner fill="#AAA" />
       </div>
     {:else}
       {label}

@@ -34,12 +34,12 @@
     box-shadow: 0px 1px 0px 0px white;
   }
 
-	select:focus {
+  select:focus {
     border-style: solid;
     box-shadow: 0px 1px 0px 0px black;
   }
 
-	.outlined:focus, :global(.mode-dark) .outlined:focus {
+  .outlined:focus, :global(.mode-dark) .outlined:focus {
     box-shadow: 0 0 0 1px inset;
   }
 

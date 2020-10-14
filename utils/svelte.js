@@ -6,17 +6,18 @@ from 'svelte/internal';
 
 const ellxify = Component => class {
   constructor(props, { initState }) {
-    this.value = initState;
     this.target = document.createElement('div');
     this.emit = null;
 
     this.instance = new Component({
         target: this.target,
         props: {
-            value: this.value,
+            value: initState,
             ...props
         }
     });
+
+    this.value = this.instance.$$.ctx[this.instance.$$.props.value];
     binding_callbacks.push(() => bind(this.instance, 'value', value => this.emit && this.emit(value)));
   }
 

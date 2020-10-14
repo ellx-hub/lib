@@ -1,53 +1,60 @@
 <script>
-  const keyTimes = "0; 0.2; 0.8; 1";
+  import { onMount, tick } from "svelte";
 
-  export let dur = "2s";
   export let size = 20;
-  export let fill = "default";
+  export let fill = "currentColor";
+
+  export let rPeriod = 2000;
+  export let wPeriod = 3000;
+
+  const center = size * 0.5;
+  const dotRadius = size / 16;
+
+  const start = Date.now();
+
+  let canvas, ctx, container;
+  let running = true;
+
+  function draw() {
+    if (!running) return;
+
+    const dt = Math.PI * (Date.now() - start);
+    let r = Math.cos(dt / rPeriod);
+    r *= r * size * 3 / 8;
+    const w = 2 * dt / wPeriod;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let k of [3, 7, 11]) {
+      ctx.beginPath();
+      ctx.arc(
+        center + r * Math.cos(k * Math.PI / 6 + w),
+        center - r * Math.sin(k * Math.PI / 6 + w),
+        dotRadius,
+        0, 2 * Math.PI
+      );
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  onMount(() => {
+    ctx = canvas.getContext('2d');
+    tick().then(() => {
+      ctx.fillStyle = window.getComputedStyle(container).getPropertyValue('color');
+      requestAnimationFrame(draw);
+    });
+
+    return () => (running = false);
+  });
+
 </script>
 
-<style>
-  .ellipse {
-    fill: black;
-  }
-  
-  :global(.mode-dark) {
-    fill: white;
-  }
-  @keyframes rotating {
-    0% {
-      transform: rotate(0deg);
-    }
-    33% {
-      transform: rotate(360deg);
-    }
-    100% {
-      transform: rotate(720deg);
-    }
-  }
-  .rotating {
-    animation: rotating 2s linear infinite;
-  }
-  
-  svg {
-    margin: 0 auto;
-  }
-</style>
-
-<svg class="{$$props.class || ''} rotating" width="{size}px" height="{size}px" viewBox="0 0 400 400"  xmlns="http://www.w3.org/2000/svg">
-  <g>
-    <ellipse {fill} ry="25" rx="25" id="dot_1" cy="110" cx="200">
-      <animate attributeName="cy" values="200;110;200;200" {keyTimes} {dur} repeatCount="indefinite" />
-      <animate attributeName="cx" values="200;200;200;200" {keyTimes} {dur} repeatCount="indefinite" />
-    </ellipse>
-    <ellipse {fill} ry="25" rx="25" id="dot_2" cy="250" cx="100">
-      <animate attributeName="cy" values="200;250;200;200" {keyTimes} {dur} repeatCount="indefinite" />
-      <animate attributeName="cx" values="200;100;200;200" {keyTimes} {dur} repeatCount="indefinite" />
-    </ellipse>
-    <ellipse {fill} ry="25" rx="25" id="dot_3" cy="250" cx="300">
-      <animate attributeName="cy" values="200;250;200;200" {keyTimes} {dur} repeatCount="indefinite" />
-      <animate attributeName="cx" values="200;300;200;200" {keyTimes} {dur} repeatCount="indefinite" />
-    </ellipse>
-  </g>
-</svg>
-
+<div bind:this={container} style="margin: 0 auto; color: {fill};">
+  <canvas
+    style="margin: 0 auto;"
+    width={size}
+    height={size}
+    bind:this={canvas}
+  />
+</div>
