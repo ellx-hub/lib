@@ -322,13 +322,12 @@ Standard Ellx progress indicator
 
 - **PROPS**
 - _size_ | 20 | Input file content as text
-- _dur_ | '' | (String)
-- _fill_ | 'default' | (String)
+- _fill_ | 'currentColor' | (String)
 
-{ spinner({ size: 70 }) }
+{ spinner({ size: 70, fill: "blue" }) }
 
 ```
-{ spinner({ size: 70 }) }
+{ spinner({ size: 70, fill: "blue" }) }
 ```
 
 ---
