@@ -13,6 +13,7 @@
   const start = Date.now();
 
   let canvas, ctx, container;
+  let running = true;
 
   function draw() {
     if (!running) return;
