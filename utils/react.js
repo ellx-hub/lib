@@ -15,8 +15,8 @@ const ellxify = Component => class {
 
   async *output() {
     while (true) {
-      this.value = await new Promise(resolve => this.emit = resolve);
       yield this.value;
+      this.value = await new Promise(resolve => this.emit = resolve);
     }
   }
 
