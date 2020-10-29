@@ -33,7 +33,7 @@ const ellxify = Component => class {
   }
 
   dispose() {
-      this.instance.$destroy();
+    this.instance.$destroy();
   }
 
   async *output() {
@@ -44,7 +44,7 @@ const ellxify = Component => class {
   }
 
   render(node) {
-      node.appendChild(this.target);
+    node.appendChild(this.target);
   }
 };
 
