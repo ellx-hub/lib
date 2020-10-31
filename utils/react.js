@@ -8,7 +8,8 @@ const ellxify = Component => class {
     this.container = null;
     this.currentProps = { value: this.value, ...props, onChange: output };
 
-    output(initState);
+    output(this.currentProps.value);
+
     this.instance = React.createElement(
       Component,
       this.currentProps
