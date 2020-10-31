@@ -2,6 +2,7 @@
   import { scale } from 'svelte/transition';
   import Spinner from '/components/Spinner/Spinner.svelte';
 
+  export let value = true;
   export let label = '';
   export let onClick = () => {};
   export let dense = false;

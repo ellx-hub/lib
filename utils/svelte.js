@@ -5,9 +5,8 @@ import {
 from 'svelte/internal';
 
 const ellxify = Component => class {
-  constructor(props, { initState }) {
+  constructor(props, { initState, output }) {
     this.target = document.createElement('div');
-    this.emit = null;
 
     this.instance = new Component({
         target: this.target,
@@ -17,8 +16,8 @@ const ellxify = Component => class {
         }
     });
 
-    this.value = this.instance.$$.ctx[this.instance.$$.props.value];
-    binding_callbacks.push(() => bind(this.instance, 'value', value => this.emit && this.emit(value)));
+    output(this.instance.$$.ctx[this.instance.$$.props.value]);
+    binding_callbacks.push(() => bind(this.instance, 'value', output));
   }
 
   stale() {
@@ -33,18 +32,11 @@ const ellxify = Component => class {
   }
 
   dispose() {
-      this.instance.$destroy();
-  }
-
-  async *output() {
-    while (true) {
-      yield this.value;
-      this.value = await new Promise(resolve => this.emit = resolve);
-    }
+    this.instance.$destroy();
   }
 
   render(node) {
-      node.appendChild(this.target);
+    node.appendChild(this.target);
   }
 };
 
