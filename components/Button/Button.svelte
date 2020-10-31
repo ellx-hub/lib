@@ -10,12 +10,6 @@
   export let stale = false;
   export let disabled = stale;
   export let loading = false;
-
-  let onMouseUp = () => {};
-  const onMouseDown = () => {
-    const current = value;
-    value = new Promise(resolve => onMouseUp = () => resolve(current));
-  };
 </script>
 
 <style>
@@ -73,8 +67,6 @@
   {...$$props}
   on:click={onClick}
   on:click
-  on:mousedown={onMouseDown}
-  on:mouseup={onMouseUp}
 >
   <slot>
     {#if loading || stale}
