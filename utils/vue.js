@@ -1,20 +1,18 @@
 import Vue from 'vue';
 
 const ellxify = Component => class {
-  constructor(props, { initState }) {
-    this.value = initState;
-    this.emit = () => {};
-
+  constructor(props, { initState, output }) {
     const ComponentClass = Vue.extend(Component);
 
     this.instance = new ComponentClass({
       propsData: {
-        value: this.value,
+        value: initState,
         ...props
       }
     });
 
-    this.instance.$watch('value', (v) => this.emit(v));
+    output(initState);
+    this.instance.$watch('value', output);
   }
 
   stale() {
@@ -30,13 +28,6 @@ const ellxify = Component => class {
 
   dispose() {
     this.instance.$destroy();
-  }
-
-  async *output() {
-    while (true) {
-      yield this.value;
-      this.value = await new Promise(resolve => this.emit = resolve);
-    }
   }
 
   render(node) {

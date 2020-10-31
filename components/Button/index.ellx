@@ -1,6 +1,7 @@
 version: 1.1
 nodes:
-  $1 = button({ label: 'test' })
+  testButton = button({ label: 'test', value: 'Test value' })
+  $6 = testButton
   $2 = button({ dense: true, label: 'test' })
   $3 = button({ dense: true, label: 'test', disabled: true })
   $4 = button({ dense: true, label: 'test', loading: true })
@@ -14,9 +15,14 @@ layout:
   ],
   [
     {
-      "node": "$1"
+      "node": "testButton"
     }
-  ],,,
+  ],
+  [,,,
+    {
+      "node": "$6"
+    }
+  ],,
   [
     {
       "value": "Dense:"
