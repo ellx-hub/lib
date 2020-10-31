@@ -2,22 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const ellxify = Component => class {
-  constructor(props, { initState }) {
+  constructor(props, { initState, output }) {
     this.value = initState;
+    this.output = output;
     this.container = null;
-    this.currentProps = { value: this.value, ...props, onChange: (v) => this.emit && this.emit(v) };
+    this.currentProps = { value: this.value, ...props, onChange: output };
 
     this.instance = React.createElement(
       Component,
       this.currentProps
     );
-  }
-
-  async *output() {
-    while (true) {
-      yield this.value;
-      this.value = await new Promise(resolve => this.emit = resolve);
-    }
   }
 
   stale() {
@@ -29,7 +23,7 @@ const ellxify = Component => class {
       stale: false,
       value: this.value,
       ...props,
-      onChange: (v) => this.emit && this.emit(v)
+      onChange: this.output
     };
 
     this.instance = React.createElement(

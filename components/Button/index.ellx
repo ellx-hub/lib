@@ -1,6 +1,9 @@
 version: 1.1
 nodes:
-  $1 = button({ label: 'test' })
+  latch = require('../../utils/latch.js').latch
+  testButton = button({ label: 'test', value: 'Test value' })
+  tt = testButton + ' ' + Math.random()
+  $7 = latch(tt)
   $2 = button({ dense: true, label: 'test' })
   $3 = button({ dense: true, label: 'test', disabled: true })
   $4 = button({ dense: true, label: 'test', loading: true })
@@ -10,13 +13,26 @@ layout:
   [
     {
       "value": "Default:"
+    },,,
+    {
+      "node": "latch"
     }
   ],
   [
     {
-      "node": "$1"
+      "node": "testButton"
     }
-  ],,,
+  ],
+  [,,,
+    {
+      "node": "tt"
+    }
+  ],
+  [,,,
+    {
+      "node": "$7"
+    }
+  ],
   [
     {
       "value": "Dense:"
