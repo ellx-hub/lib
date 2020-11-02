@@ -10,12 +10,7 @@
 
   $: hidden = ((size * 12) - ((value || '').length + (label || '').length)) < -1;
 
-  const handleInput = e => {
-    // TODO: any other types here?
-    value = type.match(/^(number|range)$/)
-      ? +e.target.value
-      : e.target.value;
-  };
+  const handleInput = e => value = e.target.value;
 
 </script>
 
