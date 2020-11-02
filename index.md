@@ -68,10 +68,10 @@ Arbitrary props can be passed directly to the input including type.
 
 Most components support `dense` prop to be able to fit in exactly one cell on a sheet (size 20x100px).
 
-{ input({ label: 'Numeric field', dense: true }) }
+{ input({ label: 'Dense input', dense: true }) }
 
 ```
-{ input({ label: 'Numeric field', dense: true }) }
+{ input({ label: 'Dense input', dense: true }) }
 ```
 
 ##### Disabled

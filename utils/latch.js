@@ -1,13 +1,8 @@
 class Latch {
   constructor(props, { output }) {
-    this.output = output;
+    this.update = ({ value }) => output(value);
     this.update(props);
   }
-
-  update({ value }) {
-    this.output(value);
-  }
-
   stale() {}
 }
 
