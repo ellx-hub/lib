@@ -1,6 +1,6 @@
 <script>
   export let value = '';
-  export let type='text';
+  export let type = 'text';
   export let dense = false;
   export let size = 2;
   export let label = '';
