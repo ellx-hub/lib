@@ -1,5 +1,6 @@
 <script>
   export let value = '';
+  export let type = 'text';
   export let dense = false;
   export let size = 2;
   export let label = '';
@@ -8,6 +9,9 @@
   export let outlined = false;
 
   $: hidden = ((size * 12) - ((value || '').length + (label || '').length)) < -1;
+
+  const handleInput = e => value = e.target.value;
+
 </script>
 
 <style>
@@ -129,15 +133,15 @@
   style="width: {(dense ? 1 : size) * 100}px"
   class="wrapper">
   <input
-    bind:value
-    type="text"
+    {value}
+    {type}
+    on:input={handleInput}
     autocomplete="off"
     autocorrect="off"
     spellcheck="false"
     class:outlined
     class:dense
     placeholder={label || $$props.placeholder}
-    {...$$props}
     on:click
   />
   {#if value !== '' && label}

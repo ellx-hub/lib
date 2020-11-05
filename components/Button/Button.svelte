@@ -10,6 +10,15 @@
   export let stale = false;
   export let disabled = stale;
   export let loading = false;
+
+  const STALE = '@@io.ellx.STALE';
+  let current = value;
+
+  const onMouseUp = () => value = current;
+  const onMouseDown = () => {
+    current = value;
+    value = STALE;
+  };
 </script>
 
 <style>
@@ -64,9 +73,10 @@
   class:loading
   style="width: {(dense ? 1 : size) * 100}px"
   class:dense
-  {...$$props}
   on:click={onClick}
   on:click
+  on:mouseup={onMouseUp}
+  on:mousedown={onMouseDown}
 >
   <slot>
     {#if loading || stale}

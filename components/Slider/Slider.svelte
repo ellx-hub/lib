@@ -30,4 +30,4 @@
   {dense}
   {min}
   {max}
-  {...$$props} />
+/>
