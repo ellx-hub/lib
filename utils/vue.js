@@ -11,7 +11,7 @@ const ellxify = Component => class {
       }
     });
 
-    output(initState);
+    output(this.instance.value);
     this.instance.$watch('value', output);
   }
 
