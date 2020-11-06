@@ -3,10 +3,16 @@
   export let step = 1;
   export let max = 100;
   export let value = 50;
-  export let dense = false;
   export let size = 2;
   export let stale = false;
   export let disabled = stale;
 </script>
 
-<input type="range" bind:value {step} {size} {dense} {min} {max} />
+<input
+  disabled={disabled || stale}
+  type="range"
+  bind:value
+  {step}
+  {size}
+  {min}
+  {max} />
