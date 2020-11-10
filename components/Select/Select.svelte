@@ -15,6 +15,7 @@
     width: 200px;
     outline: none;
     border-bottom: 1px dashed black;
+    background: transparent;
   }
 
   .outlined {
