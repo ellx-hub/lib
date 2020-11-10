@@ -1,33 +1,27 @@
 <script>
-  import Input from '/components/Input/Input.svelte';
   export let min = 0;
+  export let step = 1;
   export let max = 100;
   export let value = 50;
-  export let dense = false;
   export let size = 2;
   export let stale = false;
   export let disabled = stale;
+  export let dense = false;
 </script>
 
 <style>
   .dense {
+    height: 20px;
     width: 100px;
-  }
-  .disabled {
-    pointer-events: none;
-    color: lightGray;
-  }
-
-  :global(.mode-dark) .disabled {
-    color: gray;
   }
 </style>
 
-<Input
+<input
+  class:dense
+  disabled={disabled || stale}
   type="range"
   bind:value
+  {step}
   {size}
-  {dense}
   {min}
-  {max}
-/>
+  {max} />
