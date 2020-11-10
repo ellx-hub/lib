@@ -11,8 +11,8 @@ const ellxify = Component => class {
       }
     });
 
+    this.instance.$on('input', output);
     output(this.instance.value);
-    this.instance.$watch('value', output);
   }
 
   stale() {
