@@ -11,6 +11,8 @@ const ellxify = Component => class {
       value: initState,
       ...props,
     };
+
+    output(this.props.value);
   }
 
   stale() {
