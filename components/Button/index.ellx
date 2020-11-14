@@ -4,7 +4,8 @@ nodes:
   testButton = button({ label: 'test', value: 'Test value' })
   tt = testButton + ' ' + Math.random()
   $7 = latch(tt)
-  $2 = button({ dense: true, label: 'test' })
+  $2 = button({ dense: true, label: 'test', value: 'test', whenPressed: 'pressed' })
+  $8 = $2
   $3 = button({ dense: true, label: 'test', disabled: true })
   $4 = button({ dense: true, label: 'test', loading: true })
   $5 = button({ dense: true, label: 'test', loading: true, stale: true })
@@ -41,6 +42,9 @@ layout:
   [
     {
       "node": "$2"
+    },,,
+    {
+      "node": "$8"
     }
   ],,
   [
