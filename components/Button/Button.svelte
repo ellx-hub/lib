@@ -2,7 +2,10 @@
   import { scale } from 'svelte/transition';
   import Spinner from '/components/Spinner/Spinner.svelte';
 
-  export let value = true;
+  const STALE = '@@io.ellx.STALE';
+
+  export let value = false;
+  export let whenPressed = STALE;
   export let label = '';
   export let onClick = () => {};
   export let dense = false;
@@ -11,13 +14,12 @@
   export let disabled = stale;
   export let loading = false;
 
-  const STALE = '@@io.ellx.STALE';
   let current = value;
 
   const onMouseUp = () => value = current;
   const onMouseDown = () => {
     current = value;
-    value = STALE;
+    value = whenPressed;
   };
 </script>
 
