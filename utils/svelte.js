@@ -6,18 +6,13 @@ from 'svelte/internal';
 
 const ellxify = Component => class {
   constructor(props, { initState, output }) {
-    this.target = document.createElement('div');
+    this.output = output;
+    this.props = {
+      value: initState,
+      ...props,
+    };
 
-    this.instance = new Component({
-        target: this.target,
-        props: {
-            value: initState,
-            ...props
-        }
-    });
-
-    output(this.instance.$$.ctx[this.instance.$$.props.value]);
-    binding_callbacks.push(() => bind(this.instance, 'value', output));
+    output(this.props.value);
   }
 
   stale() {
@@ -25,6 +20,8 @@ const ellxify = Component => class {
   }
 
   update(props = {}) {
+    if (!this.instance) return;
+
     this.instance.$set({
       stale: false,
       ...props,
@@ -32,11 +29,17 @@ const ellxify = Component => class {
   }
 
   dispose() {
-    this.instance.$destroy();
+    if (this.instance) this.instance.$destroy();
   }
 
   render(node) {
-    node.appendChild(this.target);
+    this.instance = new Component({
+      target: node,
+      props: this.props,
+    });
+
+    this.output(this.instance.$$.ctx[this.instance.$$.props.value]);
+    binding_callbacks.push(() => bind(this.instance, 'value', this.output));
   }
 };
 
