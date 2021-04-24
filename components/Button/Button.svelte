@@ -20,6 +20,7 @@
   const onMouseDown = () => {
     current = value;
     value = whenPressed;
+    window.addEventListener('mouseup', onMouseUp, { once: true });
   };
 </script>
 
@@ -77,7 +78,6 @@
   class:dense
   on:click={onClick}
   on:click
-  on:mouseup={onMouseUp}
   on:mousedown={onMouseDown}
 >
   <slot>

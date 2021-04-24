@@ -36,6 +36,6 @@
 </style>
 
 <label class:disabled class:dense>
-  <input type="checkbox" on:change={() => value = !value} />
+  <input type="checkbox" checked={value} on:change={() => value = !value} />
   <span>{label}</span>
 </label>
