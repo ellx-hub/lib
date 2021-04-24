@@ -203,10 +203,11 @@ Most components support `dense` prop to be able to fit in exactly one cell on a 
 - _disabled_ | false | (Boolean)
 - _stale_ | false | (Boolean)
 
-{ checkbox({ label: "Submit" }) }
+{ checkboxValue = checkbox({ label: "Click me", value: true }) }
+{ checkboxValue }
 
 ```
-{ checkbox({ label: "Submit" }) }
+{ checkboxValue = checkbox({ label: "Click me", value: true }) }
 ```
 
 <br>
