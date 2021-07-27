@@ -1,4 +1,4 @@
-import { delay } from '/utils/time.js';
+import { delay } from '../../utils/time.js';
 
 class Interval {
   constructor(props, { output }) {

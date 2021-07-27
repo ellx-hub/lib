@@ -1,6 +1,6 @@
 <script>
   import { scale } from 'svelte/transition';
-  import Spinner from '/components/Spinner/Spinner.svelte';
+  import Spinner from '../Spinner/Spinner.svelte';
 
   const STALE = '@@io.ellx.STALE';
 
