@@ -1,6 +1,6 @@
 <script>
-  import download from '/utils/download.js';
-  import Button from '/components/Button/Button.svelte';
+  import download from '../../utils/download.js';
+  import Button from '../Button/Button.svelte';
 
   export let value;
   export let label = 'Download';

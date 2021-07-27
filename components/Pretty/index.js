@@ -1,5 +1,5 @@
 import Pretty from './Pretty.svelte';
-import ellxify from '/utils/svelte.js';
+import ellxify from '../../utils/svelte.js';
 
 const ellxified = ellxify(Pretty);
 
